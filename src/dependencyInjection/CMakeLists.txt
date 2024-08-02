@@ -1,0 +1,22 @@
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dep)
+
+set(DEP_SOURCES
+    dep/RealDep.cpp
+)
+
+add_executable(dependencyInjection ${DEP_SOURCES} main.cpp)
+
+
+add_executable(dependencyInjection_test dependencyInjection_test.cpp ${DEP_SOURCES})
+target_include_directories(dependencyInjection_test  PRIVATE "${GTEST_HEADER_DIR}")
+target_link_libraries(dependencyInjection_test PRIVATE
+    ${GTEST_LIB_DIR}/libgtest.a
+    ${GTEST_LIB_DIR}/libgmock.a
+    ${GTEST_LIB_DIR}/libgtest_main.a
+    ${GTEST_LIB_DIR}/libgmock_main.a
+)
+set_target_properties(dependencyInjection_test PROPERTIES
+    OUTPUT_NAME dependencyInjection_test
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin
+)
+add_test(NAME dependencyInjection_test COMMAND ${CMAKE_BINARY_DIR}/bin/dependencyInjection_test)

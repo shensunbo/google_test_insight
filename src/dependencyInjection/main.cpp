@@ -16,7 +16,7 @@ int main() {
     // UsePacketStream useStream;
     
     //after, non virtual func mock
-    UsePacketStream<ConcretePacketStream> useStream;
+    UsePacketStream<ConcretePacketStream> useStream(stream);
     std::string new_packet = "Hello World!";
     useStream.AddPacket(new_packet);
     useStream.CheckPacket(stream);

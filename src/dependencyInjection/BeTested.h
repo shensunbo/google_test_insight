@@ -11,6 +11,10 @@ public:
     bool funcWithDep(int _foo) { 
         return m_dep->doSomething(_foo); 
     }
+
+    bool setCar(Car _car){
+        return m_dep->funcNeedMatcher(_car);
+    }
 public:
     std::shared_ptr<BaseDep> m_dep;
 };

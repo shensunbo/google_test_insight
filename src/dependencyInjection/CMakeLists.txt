@@ -1,4 +1,6 @@
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dep ${CMAKE_CURRENT_SOURCE_DIR}/nonVirualFuncMock)
+enable_testing()
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dep ${CMAKE_CURRENT_SOURCE_DIR}/toolBox ${CMAKE_CURRENT_SOURCE_DIR}/nonVirualFuncMock)
 
 set(DEP_SOURCES
     dep/RealDep.cpp

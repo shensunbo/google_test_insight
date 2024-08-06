@@ -3,6 +3,9 @@
 #include "MockDep.h"
 #include "BeTested.h"
 
+using namespace testing;
+
+// 1. test dependency Injection
 class DepTest : public ::testing::Test {
 
 public:
@@ -30,4 +33,16 @@ TEST_F(DepTest, funcWithDepTest2) {
 
     bool res = tested_.funcWithDep(66);
     EXPECT_FALSE(res);
+}
+
+TEST_F(DepTest, funcNeedMatcherTest){
+    EXPECT_CALL(*mockDep_, funcNeedMatcher(Field(&Car::cool, true)))
+        .Times(1)
+        .WillOnce(testing::Return(true));
+
+    Car testCar;
+    testCar.cool = true;
+
+    bool res = tested_.setCar(testCar);
+    EXPECT_TRUE(res);
 }

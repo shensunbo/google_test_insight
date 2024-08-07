@@ -35,13 +35,52 @@ TEST_F(DepTest, funcWithDepTest2) {
     EXPECT_FALSE(res);
 }
 
-TEST_F(DepTest, funcNeedMatcherTest){
-    EXPECT_CALL(*mockDep_, funcNeedMatcher(Field(&Car::cool, true)))
+TEST_F(DepTest, funcNeedMatcherWithFieldTest1){
+    EXPECT_CALL(*mockDep_, funcNeedMatcher(AllOf(Field(&Car::cool, true), Field(&Car::price, 999))))
         .Times(1)
         .WillOnce(testing::Return(true));
 
     Car testCar;
     testCar.cool = true;
+    testCar.price = 999;
+
+    bool res = tested_.setCar(testCar);
+    EXPECT_TRUE(res);
+}
+
+//Field is designed to match a specific field in an object, 
+//but it doesn't support nested fields or fields that are part of a nested object
+// TEST_F(DepTest, funcNeedMatcherWithFieldTest2){
+//     EXPECT_CALL(*mockDep_, funcNeedMatcher(&Car::wheel_.foo, 999))
+//         .Times(1)
+//         .WillOnce(testing::Return(true));
+
+//     Car testCar;
+//     testCar.wheel_.foo = 999;
+
+//     bool res = tested_.setCar(testCar);
+//     EXPECT_TRUE(res);
+// }
+
+
+MATCHER_P(CarMatcher, expected, "Car MATCHER_P :-)") {
+  return arg.wheel_.foo == expected.wheel_.foo && arg.engin_.bar == expected.engin_.bar;
+}
+
+TEST_F(DepTest, funcNeedMatcherNestedTest1){
+    // auto matcher = [](const Car& car) { 
+    //     return car.wheel_.foo == 999 && car.engin_.bar == 888; 
+    // };
+    Car mock={};
+    mock.wheel_.foo = 999;
+    mock.engin_.bar = 888;
+    EXPECT_CALL(*mockDep_, funcNeedMatcher(CarMatcher(mock)))
+        .Times(1)
+        .WillOnce(testing::Return(true));
+
+    Car testCar;
+    testCar.wheel_.foo = 999;
+    testCar.engin_.bar = 888;
 
     bool res = tested_.setCar(testCar);
     EXPECT_TRUE(res);

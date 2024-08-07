@@ -1,9 +1,9 @@
 enable_testing()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dep ${CMAKE_CURRENT_SOURCE_DIR}/toolBox ${CMAKE_CURRENT_SOURCE_DIR}/nonVirualFuncMock)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dependencyInjection ${CMAKE_CURRENT_SOURCE_DIR}/toolBox ${CMAKE_CURRENT_SOURCE_DIR}/nonVirualFuncMock)
 
 set(DEP_SOURCES
-    dep/RealDep.cpp
+    dependencyInjection/RealDep.cpp
 )
 
 add_executable(dependencyInjection ${DEP_SOURCES} main.cpp)
@@ -18,7 +18,7 @@ set(GTEST_LIB_DEP
 )
 
 # dependencyInjection_test
-add_executable(dependencyInjection_test dependencyInjection_test.cpp ${DEP_SOURCES})
+add_executable(dependencyInjection_test unitTest/dependencyInjection_test.cpp ${DEP_SOURCES})
 target_include_directories(dependencyInjection_test  PRIVATE "${GTEST_HEADER_DIR}")
 target_link_libraries(dependencyInjection_test PRIVATE "${GTEST_LIB_DEP}")
 set_target_properties(dependencyInjection_test PROPERTIES
@@ -28,7 +28,7 @@ set_target_properties(dependencyInjection_test PROPERTIES
 add_test(NAME dependencyInjection_test COMMAND ${CMAKE_BINARY_DIR}/bin/dependencyInjection_test)
 
 # nonVirualFuncMock_test
-add_executable(nonVirualFuncMock_test hiPerfDependencyInjection_test.cpp ${DEP_SOURCES})
+add_executable(nonVirualFuncMock_test unitTest/hiPerfDependencyInjection_test.cpp ${DEP_SOURCES})
 target_include_directories(nonVirualFuncMock_test  PRIVATE "${GTEST_HEADER_DIR}")
 target_link_libraries(nonVirualFuncMock_test PRIVATE "${GTEST_LIB_DEP}")
 set_target_properties(nonVirualFuncMock_test PROPERTIES

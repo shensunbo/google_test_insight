@@ -1,0 +1,1 @@
+#TODO: Encapsulation gtest cmake to a func

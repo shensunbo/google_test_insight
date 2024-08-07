@@ -28,7 +28,7 @@ set_target_properties(dependencyInjection_test PROPERTIES
 add_test(NAME dependencyInjection_test COMMAND ${CMAKE_BINARY_DIR}/bin/dependencyInjection_test)
 
 # nonVirualFuncMock_test
-add_executable(nonVirualFuncMock_test unitTest/hiPerfDependencyInjection_test.cpp ${DEP_SOURCES})
+add_executable(nonVirualFuncMock_test unitTest/nonVirualFuncMock.cpp ${DEP_SOURCES})
 target_include_directories(nonVirualFuncMock_test  PRIVATE "${GTEST_HEADER_DIR}")
 target_link_libraries(nonVirualFuncMock_test PRIVATE "${GTEST_LIB_DEP}")
 set_target_properties(nonVirualFuncMock_test PROPERTIES

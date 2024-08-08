@@ -22,10 +22,20 @@ TEST(mockRealObjectTest, directUseRealObj){
 TEST(mockRealObjectTest, notPureVirtualTest){
     MockRealObject mock;
 
+    //method 1, use ON_CALL
     EXPECT_CALL(mock, idk("hello world"))
         .Times(1);
 
     std::string str = mock.idk("hello world");
-
     EXPECT_STREQ("hello world", str.c_str());
+
+    //method 2, use lambda
+    EXPECT_CALL(mock, anotherIdk("bye-bye"))
+        .Times(1)
+        .WillOnce([&mock](std::string s){
+            return mock.RealObject::anotherIdk(s);
+        });
+
+    std::string anotherStr = mock.anotherIdk("bye-bye");
+    EXPECT_STREQ("bye-bye", anotherStr.c_str());
 }

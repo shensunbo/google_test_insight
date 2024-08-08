@@ -17,4 +17,8 @@ public:
     std::string idk(std::string str){
         return str;
     }
+
+    std::string anotherIdk(std::string str){
+        return str;
+    }
 };

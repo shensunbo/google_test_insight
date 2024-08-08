@@ -22,7 +22,10 @@ public:
 
     MOCK_METHOD((void), multify10, (const int in, int& out), ());
     MOCK_METHOD((int), minus5, (const int in), ());
+
+    //not pure virtual func mock and call parent func
     MOCK_METHOD((std::string), idk, (std::string), ());
+    MOCK_METHOD((std::string), anotherIdk, (std::string), ());
 
 private:
     RealObject realObject_;

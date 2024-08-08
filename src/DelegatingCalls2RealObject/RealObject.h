@@ -12,4 +12,9 @@ public:
     int minus5(const int in){
         return (in - 5);
     }
+
+    //not pure virtual func
+    std::string idk(std::string str){
+        return str;
+    }
 };

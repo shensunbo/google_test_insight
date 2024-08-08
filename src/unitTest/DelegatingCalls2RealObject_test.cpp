@@ -1,7 +1,7 @@
 #include "gmock/gmock.h"
 #include "MockRealObject.h"
 
-TEST(mockRealObjectTest, test1){
+TEST(mockRealObjectTest, directUseRealObj){
     MockRealObject mock;
 
     int multify = 0;
@@ -17,4 +17,15 @@ TEST(mockRealObjectTest, test1){
 
     int val = mock.minus5(55);
     EXPECT_EQ(50, val);
+}
+
+TEST(mockRealObjectTest, notPureVirtualTest){
+    MockRealObject mock;
+
+    EXPECT_CALL(mock, idk("hello world"))
+        .Times(1);
+
+    std::string str = mock.idk("hello world");
+
+    EXPECT_STREQ("hello world", str.c_str());
 }

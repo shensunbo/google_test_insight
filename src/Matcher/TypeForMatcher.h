@@ -1,8 +1,15 @@
 #pragma once
 
+#include <string>
+
+class Tire {
+    int boo;
+};
+
 class Wheel {
 public:
     int foo = 0;
+    Tire tire_;
 };
 
 class Engine {
@@ -16,4 +23,5 @@ public:
     Engine engin_ = {};
     unsigned int price = 0;
     bool cool = true;
+    std::string name_;
 };

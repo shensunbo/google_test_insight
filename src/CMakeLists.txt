@@ -66,3 +66,16 @@ add_new_test(
     LIB_DEP
         "${GTEST_LIB_DEP}"
 )
+
+# matcher_test
+add_new_test(
+    TEST_NAME
+        matcher_test
+    SRCS
+        unitTest/matcher_test.cpp
+    HEADER_DIR
+        "${GTEST_HEADER_DIR}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Matcher"
+    LIB_DEP
+        "${GTEST_LIB_DEP}"
+)

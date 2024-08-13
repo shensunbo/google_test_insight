@@ -79,3 +79,16 @@ add_new_test(
     LIB_DEP
         "${GTEST_LIB_DEP}"
 )
+
+# common
+add_new_test(
+    TEST_NAME
+        common_test
+    SRCS
+        unitTest/common_test.cpp
+    HEADER_DIR
+        "${GTEST_HEADER_DIR}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/common"
+    LIB_DEP
+        "${GTEST_LIB_DEP}"
+)

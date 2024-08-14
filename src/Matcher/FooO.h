@@ -1,7 +1,8 @@
 #pragma once
 
 #include "TypeForMatcher.h"
-#include "string"
+#include <string>
+#include <vector>
 
 class FooO{
 public:
@@ -13,4 +14,6 @@ public:
 
     virtual  bool doAnything(int i) = 0;
     virtual  bool doNothing(std::string str) = 0;
+
+    virtual  bool containerInput(const std::vector<int>& vec) const = 0;
 };

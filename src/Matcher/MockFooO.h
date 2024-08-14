@@ -11,4 +11,6 @@ public:
 
     MOCK_METHOD((bool), doAnything, (int i), (override));
     MOCK_METHOD((bool), doNothing, (std::string str), (override));
+
+    MOCK_METHOD((bool), containerInput, (const std::vector<int>& vec), (const, override));
 };

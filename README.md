@@ -11,4 +11,4 @@ make
 
 # run unit test
 `../runTest.sh`
-`../runTest.sh -color -VV`
+`../runTest.sh --color -VV`

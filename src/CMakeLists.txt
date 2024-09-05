@@ -41,6 +41,9 @@ add_new_test(
         "${GTEST_LIB_DEP}"
 )
 
+target_compile_options(dependencyInjection_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(dependencyInjection_test PUBLIC -fprofile-arcs -ftest-coverage)
+
 # nonVirualFuncMock_test
 add_new_test(
     TEST_NAME
@@ -53,6 +56,9 @@ add_new_test(
     LIB_DEP
         "${GTEST_LIB_DEP}"
 )
+
+target_compile_options(nonVirualFuncMock_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(nonVirualFuncMock_test PUBLIC -fprofile-arcs -ftest-coverage)
 
 # DelegatingCalls2RealObject_test
 add_new_test(
@@ -67,6 +73,9 @@ add_new_test(
         "${GTEST_LIB_DEP}"
 )
 
+target_compile_options(DelegatingCalls2RealObject_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(DelegatingCalls2RealObject_test PUBLIC -fprofile-arcs -ftest-coverage)
+
 # matcher_test
 add_new_test(
     TEST_NAME
@@ -80,6 +89,9 @@ add_new_test(
         "${GTEST_LIB_DEP}"
 )
 
+target_compile_options(matcher_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(matcher_test PUBLIC -fprofile-arcs -ftest-coverage)
+
 # common
 add_new_test(
     TEST_NAME
@@ -92,3 +104,6 @@ add_new_test(
     LIB_DEP
         "${GTEST_LIB_DEP}"
 )
+
+target_compile_options(common_test PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(common_test PUBLIC -fprofile-arcs -ftest-coverage)

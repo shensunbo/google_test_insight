@@ -12,8 +12,8 @@ make
 ```
 
 # run unit test
-`../runTest.sh`
-`../runTest.sh --color -VV`
+`../runTest.sh` 
+`../runTest.sh --color -VV` 
 
 # gcov
 * compile with code coverage 

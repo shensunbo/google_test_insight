@@ -54,6 +54,14 @@ function(add_new_test)
     # create test
     add_executable(${ARG_TEST_NAME} ${ARG_SRCS} ${ARG_DEP_SRCS})
 
+    if(GEN_REPORT)
+        target_compile_options(${ARG_TEST_NAME} PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+        target_link_options(${ARG_TEST_NAME} PUBLIC -fprofile-arcs -ftest-coverage)
+        message(STATUS "[INFO]enable code coverage report")
+    else()
+        message(STATUS "[INFO]disable code coverage report")
+    endif()
+
     if(ARG_HEADER_DIR)
         target_include_directories(${ARG_TEST_NAME} PRIVATE "${ARG_HEADER_DIR}")
     endif()

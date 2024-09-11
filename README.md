@@ -1,5 +1,7 @@
 # google_test_insight
-google test(gtest) insight
+* gtest cases
+* gmock cases
+* code coverage report
 
 # build 
 ```
@@ -14,11 +16,13 @@ make
 `../runTest.sh --color -VV`
 
 # gcov
-`lcov --capture --directory ./ --output-file coverage.info --exclude '*/include/*' --exclude 'include/*' --ignore-errors mismatch`
+* compile with code coverage 
+    * `cmake .. -DGEN_REPORT=ON`
+* install necessary tool
+    * sudo apt-get install lcov
+    * sudo apt-get install xdg-utils
+* run unit test and generate coverage report 
+`../codeCovReport.sh`
+![report](res/report_demo.png)
 
-`genhtml coverage.info --output-directory coverage_report`
 
-# gcov
-`lcov --capture --directory ./ --output-file coverage.info --exclude '*/include/*' --exclude 'include/*' --ignore-errors mismatch`
-
-`genhtml coverage.info --output-directory coverage_report`

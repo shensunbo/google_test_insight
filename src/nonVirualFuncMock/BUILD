@@ -2,7 +2,8 @@ cc_library(
     name = "PacketStream",
     hdrs = [
         "ConcretePacketStream.h",
-        "UsePacketStream.h"
+        "UsePacketStream.h",
+        "MockPacketStream.h"
     ],
     includes = ["."],
     visibility = [

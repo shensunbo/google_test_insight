@@ -26,3 +26,10 @@ make
 ![report](res/report_demo.png)
 
 
+# Bazel
+
+## basic build
+bazel build //src:mainapp
+
+## basic test cases
+bazel test //src/unitTest:nonVirualFuncMock_test

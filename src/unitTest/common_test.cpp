@@ -35,3 +35,7 @@ TEST(OverloadFuncTest, test2){
     mock.print(1.0f);
     mock.print("hello");
 }
+
+// TEST(errorTest, fault){
+//     ASSERT_TRUE(false);
+// }

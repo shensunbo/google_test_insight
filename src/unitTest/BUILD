@@ -6,3 +6,39 @@ cc_test(
         "//:gtest"
     ]
 )
+
+cc_test(
+    name = "common_test",
+    srcs = ["common_test.cpp"],
+    deps = [
+        "//src/common:common",
+        "//:gtest"
+    ]
+)
+
+cc_test(
+    name = "DelegatingCalls2RealObject_test",
+    srcs = ["DelegatingCalls2RealObject_test.cpp"],
+    deps = [
+        "//src/DelegatingCalls2RealObject:DelegatingCalls2RealObject",
+        "//:gtest"
+    ]
+)
+
+cc_test(
+    name = "dependencyInjection_test",
+    srcs = ["dependencyInjection_test.cpp"],
+    deps = [
+        "//src/dependencyInjection:dependencyInjection",
+        "//:gtest"
+    ]
+)
+
+cc_test(
+    name = "matcher_test",
+    srcs = ["matcher_test.cpp"],
+    deps = [
+        "//src/Matcher:Matcher",
+        "//:gtest"
+    ]
+)

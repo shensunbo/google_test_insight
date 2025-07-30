@@ -33,3 +33,7 @@ bazel build //src:mainapp
 
 ## basic test cases
 bazel test //src/unitTest:nonVirualFuncMock_test
+
+## run all unit test cases
+* bazel test //src/unitTest:all
+* bazel test //...

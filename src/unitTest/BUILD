@@ -42,3 +42,13 @@ cc_test(
         "//:gtest"
     ]
 )
+
+cc_test(
+    name = "param_test",
+    size = "small",
+    srcs = ["param_test.cpp"],
+    deps = [
+        "//src/dependencyInjection:dependencyInjection",
+        "//:gtest"
+    ]
+)

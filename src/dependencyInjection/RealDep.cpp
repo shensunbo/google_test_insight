@@ -11,3 +11,8 @@ bool RealDep::funcNeedMatcher(Car _car){
     std::cout<<_car.cool<<"  "<<_car.price<<std::endl;
     return true;
 }
+
+bool RealDep::passOneStr(std::string str){
+    std::cout<<str<<std::endl;
+    return true;
+}

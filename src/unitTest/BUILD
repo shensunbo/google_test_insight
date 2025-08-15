@@ -52,3 +52,12 @@ cc_test(
         "//:gtest"
     ]
 )
+
+cc_test(
+    name = "expect_that_test",
+    size = "small",
+    srcs = ["expect_that_test.cpp"],
+    deps = [
+        "//:gtest"
+    ]
+)

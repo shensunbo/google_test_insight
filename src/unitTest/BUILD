@@ -61,3 +61,13 @@ cc_test(
         "//:gtest"
     ]
 )
+
+cc_test(
+    name = "friend_private_test",
+    size = "small",
+    srcs = ["friend_private_test.cpp"],
+    deps = [
+        "//src/friendTest:friendTest",
+        "//:gtest"
+    ]
+)
